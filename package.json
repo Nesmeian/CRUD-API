@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "type": "module",
   "scripts": {
     "build": "webpack",
     "start": "npm run start:dev",
-    "start:dev": "ts-node-dev src",
+    "start:dev": "ts-node-dev src/index.ts",
     "start:prod": "webpack && node dist"
   },
   "keywords": [],
