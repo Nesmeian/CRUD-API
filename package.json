@@ -7,7 +7,8 @@
     "build": "webpack",
     "start": "npm run start:dev",
     "start:dev": "ts-node-dev src/index.ts",
-    "start:prod": "webpack && node dist"
+    "start:prod": "webpack && node dist",
+    "lint": "eslint"
   },
   "keywords": [],
   "author": "Nesmeian",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "http-types": "^0.6.1",
     "uuid": "^10.0.0"
   }
 }
