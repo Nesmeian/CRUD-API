@@ -1,14 +1,22 @@
 [
   {
-    "id": 1,
-    "user": "Jack"
+    "id": "f95e5579-ef7b-458d-9022-f55d3e68f69e",
+    "username": "Black",
+    "hobbies": [
+      "games",
+      "books",
+      "movies"
+    ],
+    "age": "27"
   },
   {
-    "id": 2,
-    "user": "Nick"
-  },
-  {
-    "id": 3,
-    "user": "jack"
+    "id": "0e1511de-a5ed-4bef-8fbf-9267cc560255",
+    "username": "lack",
+    "hobbies": [
+      "games",
+      "books",
+      "movies"
+    ],
+    "age": "27"
   }
 ]

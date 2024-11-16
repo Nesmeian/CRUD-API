@@ -1,20 +1,20 @@
 import http from 'http';
 import path from 'path';
-import { User } from './tsInterfaces/index';
-// import fs from 'fs';
-import { postUsers } from './controllers/index';
+import { getUsers, postUsers } from './controllers/index';
 const server = http.createServer(async (req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World');
-  if (req.method === 'POST') {
-    req.on('data', async (chunk) => {
-      const userDataPath = path.join(__dirname, 'usersData', 'usersData.json');
-      const chunkData: User = JSON.parse(chunk);
-      postUsers(userDataPath, chunkData);
-    });
+  const userDataPath = path.join(__dirname, 'usersData', 'usersData.json');
+  if (req.url === '/api/users') {
+    if (req.method === 'POST') {
+      postUsers(userDataPath, res, req);
+    } else if (req.method === 'GET') {
+      getUsers(userDataPath, res);
+    }
+  } else {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Wrong address' }));
   }
 });
-const PORT = 3000;
+const PORT: string | 3001 = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log('Сервер запущен');
 });

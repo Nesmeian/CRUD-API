@@ -1,4 +1,11 @@
 export interface User {
-  id: number;
-  user: string;
+  id: string;
+  username: string;
+  age: number;
+  hobbies: string[];
+}
+export interface postUser {
+  username: string;
+  age: number;
+  hobbies: string[];
 }
