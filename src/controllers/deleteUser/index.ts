@@ -17,11 +17,14 @@ export default async function deleteUser(
       res.end(JSON.stringify({ message: 'Search id is not valid' }));
       return;
     }
-    if (searchIndex != -1) {
+    if (searchIndex !== -1) {
       usersData.splice(searchIndex, 1);
       await fs.writeFile(path, JSON.stringify(usersData, null, 2));
       res.writeHead(204, { 'Content-Type': 'application/json' });
       res.end();
+    } else {
+      res.writeHead(404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ message: 'Search id does not exist' }));
     }
   } else {
     res.writeHead(404, { 'Content-Type': 'application/json' });

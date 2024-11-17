@@ -14,6 +14,13 @@ export default async function putUser(
   );
   const updateUser = await parseData(reg);
   const searchIndex = userData.findIndex((e) => e.id === searchId);
+  if ('id' in updateUser) {
+    res.writeHead(400, { 'Content-Type': 'application/json' });
+    res.end(
+      JSON.stringify({ message: 'ID should not be provided by the client' }),
+    );
+    return;
+  }
   if (searchId !== '' && searchId !== undefined) {
     if (!validate(searchId)) {
       res.writeHead(400, { 'Content-Type': 'application/json' });
