@@ -1,6 +1,6 @@
 import http from 'http';
 import path from 'path';
-import { getUsers, postUsers, putUser } from './controllers/index';
+import { deleteUser, getUsers, postUsers, putUser } from './controllers/index';
 const USERS_API_PATH = '/api/users/';
 const server = http.createServer(async (req, res) => {
   const userDataPath = path.join(__dirname, 'usersData', 'usersData.json');
@@ -16,6 +16,9 @@ const server = http.createServer(async (req, res) => {
           break;
         case 'PUT':
           await putUser(userDataPath, res, req, id);
+          break;
+        case 'DELETE':
+          await deleteUser(userDataPath, res, id);
           break;
         default:
           res.writeHead(405, { 'Content-Type': 'application/json' });

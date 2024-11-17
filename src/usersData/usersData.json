@@ -2,41 +2,25 @@
   {
     "id": "04bac2b2-ad28-4179-a040-9497878e9d55",
     "username": "lack",
-    "hobbies": [
-      "games",
-      "books",
-      "movies"
-    ],
+    "hobbies": ["games", "books", "movies"],
     "age": "27"
   },
   {
     "id": "e4f470b1-5163-4865-98a6-09b086e9b550",
     "username": "Blggafck",
-    "hobbies": [
-      "games",
-      "books",
-      "movies"
-    ],
+    "hobbies": ["games", "books", "movies"],
     "age": "27"
   },
   {
     "id": "fff1c360-534d-4c3b-875c-0676150f1dbc",
     "username": "Blggack",
-    "hobbies": [
-      "games",
-      "books",
-      "movies"
-    ],
+    "hobbies": ["games", "books", "movies"],
     "age": "27"
   },
   {
     "id": "ca0688c2-83f2-4539-9451-a5fe9403ae4b",
     "username": "Blggafck",
-    "hobbies": [
-      "games",
-      "books",
-      "movies"
-    ],
+    "hobbies": ["games", "books", "movies"],
     "age": "27"
   }
 ]
