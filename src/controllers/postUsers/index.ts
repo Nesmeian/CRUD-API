@@ -11,21 +11,21 @@ export default async function postUsers(
   const data = await fs.promises.readFile(path, { encoding: 'utf-8' });
   const usersData: User[] = JSON.parse(data);
   const users = usersData.map((e) => e.username);
-  const newUserId = uuidv4();
   const newUserChunk = await parseData(req);
   if (users.indexOf(newUserChunk.username) === -1) {
     if (
       newUserChunk.age !== undefined &&
       newUserChunk.hobbies !== undefined &&
-      newUserChunk.username !== undefined
+      newUserChunk.username !== undefined &&
+      newUserChunk.username.trim() !== ''
     ) {
+      const newUserId = uuidv4();
       const newUser = {
         id: newUserId,
         ...newUserChunk,
       };
-
       usersData.push(newUser);
-      await fs.promises.writeFile(path, JSON.stringify(data, null, 2));
+      await fs.promises.writeFile(path, JSON.stringify(usersData, null, 2));
       res.writeHead(201, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(newUser));
     } else {
