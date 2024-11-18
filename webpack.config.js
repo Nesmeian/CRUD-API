@@ -1,8 +1,14 @@
 import path from 'path';
 import url from 'url';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const isProduction = process.env.NODE_ENV == 'production';
 const config = {
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/usersData/usersData.json', to: 'usersData/' }],
+    }),
+  ],
   target: 'node',
   mode: isProduction ? 'production' : 'development',
   entry: path.resolve(__dirname, 'src', 'index.ts'),

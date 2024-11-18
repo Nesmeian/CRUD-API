@@ -1,7 +1,9 @@
 import http from 'http';
 import path from 'path';
+import { config } from 'dotenv';
 import { deleteUser, getUsers, postUsers, putUser } from './controllers/index';
 const USERS_API_PATH = '/api/users/';
+config();
 const server = http.createServer(async (req, res) => {
   const userDataPath = path.join(__dirname, 'usersData', 'usersData.json');
   const id = req.url?.split('/')[3];
@@ -36,5 +38,5 @@ const server = http.createServer(async (req, res) => {
 });
 const PORT: string | 3001 = process.env.PORT || 3001;
 server.listen(PORT, () => {
-  console.log('Сервер запущен');
+  console.log(`Server is running on PORT: ${PORT}`);
 });
